@@ -15,10 +15,44 @@
 
 # include "../libft/libft.h"
 # include <stdio.h>
+# include <stdlib.h>
 
-struct t_struct {
-	int			**int_array;
-}	s_struct;
+typedef enum s_status {
+	FAILURE,
+	SUCCESS
+} t_status;
 
+typedef enum s_bool {
+	FALSE,
+	TRUE
+} t_bool;
+
+/* for each number of the list will be created a t_number struct
+ * greater than is a flag for each number that is greater than the previous ones
+ * index is a classification of numbers, from the smallest to the biggest
+ */
+typedef struct t_element {
+	int	number;
+	struct t_element *next_one;
+}	s_element;
+
+typedef struct t_stack {
+	s_element *first;
+}	s_stack;
+
+typedef struct s_control {
+
+	s_stack	*a;
+	s_stack *b;
+	int 		count;
+
+} s_control;
+
+/* prototypes */
+
+void 	error();
+void 	check_arg_errors(char *arg);
+void	add_beg_list(s_stack *x, int numb);
+void	add_end_list(s_stack *x, int numb);
 
 #endif

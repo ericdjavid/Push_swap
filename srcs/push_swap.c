@@ -10,51 +10,113 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "../inc/push_swap.h"
 
-void	error(char *reason)
+void free_stack(s_stack *x)
 {
-	ft_putendl_fd(reason, 2);
-	exit (1);
-}
+	s_element *elem;
 
-
-void	check_arg_errors(char *arg)
-{
-	//TODO add if > int
-	while (*arg)
+	elem = x->first;
+	while (elem)
 	{
-	//	printf("*arg++ is %c\n", *arg);
-		if((!ft_isdigit(*arg)) && (*arg != '-'))
-			error("Error\nOne or more arg are not numbers.");
-		*arg++;
+		x->first = x->first->next_one;
+		free(elem);
+		elem = x->first;
 	}
 }
 
-void get_param(int argc, char **arg)
+void display_list(s_stack *x)
 {
-	int		**int_array;
-	char 	**char_array;
-
-
-	if ((argc) < 2)
-		error("invalid number of arguments");
-
-	//int_array = malloc(sizeof(int) * (argc - 1));
-	while (--argc > 0)
+	s_element *temp;
+	temp = x->first;
+	while (temp != NULL)
 	{
-		check_arg_errors(arg[argc]);
-		ft_putnbr_fd(ft_atoi(arg[argc]), 1);
+		printf("%d\n", temp->number);
+		temp = temp->next_one;
 	}
-	//TODO convert argument list into numbers
-	//TODO if letter or characters spé, ko
-	//TODO if > int
-	//TODO if error, display "Error \n"
+}
+
+s_control	*init()
+{
+	s_control	*list;
+	s_stack	*a;
+	s_stack	*b;
+
+	list = malloc(sizeof(*list));
+	a = malloc(sizeof(*a));
+	b = malloc(sizeof(*b));
+	if (list == NULL || a == NULL || b == NULL)
+		exit(EXIT_FAILURE);
+	a->first = NULL;
+	b->first = NULL;
+	list->count = 0;
+	list->a = a;
+	list->b = b;
+	return(list);
+}
+
+long get_numb(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+}
+
+
+int	get_numbs(char *str, s_control *list)
+{
+	int i;
+	long nb;
+	t_bool go;
+
+	go = TRUE;
+	i = 0;
+	while (*str)
+	{
+		if(*str != ' ' && go)
+		{
+			nb = ft_atoi(str);
+			if (nb > 2147483647 || nb < -2147483648)
+				error();
+			add_end_list(list->a, nb);
+		}
+		go = *str == ' ';
+		str++;
+	}
+
+}
+
+/* function that gets arguments and convert them into number */
+int convert_arg(char **argv, int argc, s_control *list)
+{
+	*argv++;
+	while (*argv)
+	{
+		//printf("|%s|\n", *argv);
+		get_numbs(*argv, list);
+		argv++;
+	}
+
 }
 
 int	main(int argc, char **argv)
 {
-	get_param(argc, argv);
-	//TODO CHECK ARGV
+	s_control	*list;
+
+	if (argc == 1)
+		exit(EXIT_FAILURE);
+	list = init();
+	convert_arg(argv, argc, list);
+	display_list(list->a);
+	free_stack(list->a);
+	free_stack(list->b);
+	free(list->a);
+	free(list->b);
+	free(list);
+	return (1);
 }
+
