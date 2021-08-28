@@ -25,10 +25,16 @@ void free_stack(s_stack *x)
 	}
 }
 
-void display_list(s_stack *x)
+void display_list(s_stack *x, char z)
 {
 	s_element *temp;
 	temp = x->first;
+	printf("--- Stack %c ---\n", z);
+	if (temp == NULL)
+	{
+		printf("stack %c is empty\n", z);
+		return;
+	}
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->number);
@@ -55,52 +61,43 @@ s_control	*init()
 	return(list);
 }
 
-long get_numb(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-}
-
-
-int	get_numbs(char *str, s_control *list)
+void	get_numbs(char *str, s_control *list)
 {
 	int i;
 	long nb;
-	t_bool go;
+	s_bool go;
 
 	go = TRUE;
 	i = 0;
 	while (*str)
 	{
+		//TODO : if not number, can't work
 		if(*str != ' ' && go)
 		{
 			nb = ft_atoi(str);
 			if (nb > 2147483647 || nb < -2147483648)
 				error();
 			add_end_list(list->a, nb);
+			list->count++;
 		}
 		go = *str == ' ';
 		str++;
 	}
-
 }
 
 /* function that gets arguments and convert them into number */
-int convert_arg(char **argv, int argc, s_control *list)
+void convert_arg(char **argv, int argc, s_control *list)
 {
-	*argv++;
+	argv++;
 	while (*argv)
 	{
 		//printf("|%s|\n", *argv);
 		get_numbs(*argv, list);
 		argv++;
 	}
-
+	if(is_doublon(list->a))
+		error();
+	//TODO: check doublons
 }
 
 int	main(int argc, char **argv)
@@ -111,7 +108,15 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	list = init();
 	convert_arg(argv, argc, list);
-	display_list(list->a);
+	display_list(list->a, 'a');
+	printf("\n");
+	display_list(list->b, 'b');
+	push_b(list);
+	printf("\n");
+	swap_x(list->a);
+	display_list(list->a, 'a');
+	display_list(list->b, 'b');
+	printf("\nNB d'arguments : %d\n", list->count);
 	free_stack(list->a);
 	free_stack(list->b);
 	free(list->a);

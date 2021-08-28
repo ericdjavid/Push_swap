@@ -18,4 +18,44 @@ void	error()
 	//free things
 	exit (EXIT_FAILURE);
 }
+//repasse sur le nb
+s_bool	is_doublon(s_stack *a)
+{
+	s_element *temp;
 
+	temp = malloc(sizeof(*temp));
+	temp = a->first;
+	while (temp->next_one != NULL)
+	{
+		if (is_in_stack(a, temp))
+		{
+			//free(temp);
+			return (TRUE);
+		}
+		temp = temp->next_one;
+	}
+	//free(temp);
+	return(FALSE);
+}
+
+s_bool	is_in_stack(s_stack *x, s_element *to_check)
+{
+	int i;
+	s_element *temp;
+
+	temp = malloc(sizeof(*temp));
+	i = to_check->number;
+	temp = x->first;
+	while (temp->next_one != NULL)
+	{
+		temp = temp->next_one;
+		if ((temp != to_check) && (i == temp->number))
+		{
+			//free(temp);
+			return (TRUE);
+		}
+	}
+	//free(temp);
+	return(FALSE);
+
+}

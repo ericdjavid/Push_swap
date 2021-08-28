@@ -34,6 +34,7 @@ void	add_end_list(s_stack *x, int numb)
 	s_element *temp2;
 
 	temp = malloc(sizeof(*temp));
+	temp2 = malloc(sizeof(*temp2));
 	temp->number = numb;
 	if (!x->first)
 	{

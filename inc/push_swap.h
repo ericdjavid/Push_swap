@@ -22,10 +22,10 @@ typedef enum s_status {
 	SUCCESS
 } t_status;
 
-typedef enum s_bool {
+typedef enum t_bool {
 	FALSE,
 	TRUE
-} t_bool;
+} s_bool;
 
 
 typedef struct t_element {
@@ -50,5 +50,9 @@ void 	error();
 void 	check_arg_errors(char *arg);
 void	add_beg_list(s_stack *x, int numb);
 void	add_end_list(s_stack *x, int numb);
+void	push_b(s_control *list);
+void    swap_x(s_stack *x);
+s_bool	is_in_stack(s_stack *x, s_element *to_check);
+s_bool	is_doublon(s_stack *a);
 
 #endif
