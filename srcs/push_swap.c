@@ -119,4 +119,3 @@ int	main(int argc, char **argv)
 	free(list);
 	return (1);
 }
-

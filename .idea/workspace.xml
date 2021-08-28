@@ -6,7 +6,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8f1722-b58b-431d-a075-72f846fe4820" name="Default Changelist" comment="" />
+    <list default="true" id="4a8f1722-b58b-431d-a075-72f846fe4820" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/inc/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/push_swap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/push_swap.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/push_swap.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +75,7 @@
       <workItem from="1629820908342" duration="5882000" />
       <workItem from="1629882361576" duration="8753000" />
       <workItem from="1630048048694" duration="16168000" />
-      <workItem from="1630135272056" duration="1583000" />
+      <workItem from="1630135272056" duration="2223000" />
     </task>
     <servers />
   </component>

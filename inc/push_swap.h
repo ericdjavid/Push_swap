@@ -27,10 +27,7 @@ typedef enum s_bool {
 	TRUE
 } t_bool;
 
-/* for each number of the list will be created a t_number struct
- * greater than is a flag for each number that is greater than the previous ones
- * index is a classification of numbers, from the smallest to the biggest
- */
+
 typedef struct t_element {
 	int	number;
 	struct t_element *next_one;
@@ -49,7 +46,6 @@ typedef struct s_control {
 } s_control;
 
 /* prototypes */
-
 void 	error();
 void 	check_arg_errors(char *arg);
 void	add_beg_list(s_stack *x, int numb);
