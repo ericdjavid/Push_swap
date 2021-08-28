@@ -6,13 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8f1722-b58b-431d-a075-72f846fe4820" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/push_swap.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/push_swap" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/push_swap.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/push_swap.c" afterDir="false" />
-    </list>
+    <list default="true" id="4a8f1722-b58b-431d-a075-72f846fe4820" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +32,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../VBRAZ_push_swap" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -71,7 +72,7 @@
       <workItem from="1629820908342" duration="5882000" />
       <workItem from="1629882361576" duration="8753000" />
       <workItem from="1630048048694" duration="16168000" />
-      <workItem from="1630135272056" duration="1158000" />
+      <workItem from="1630135272056" duration="1583000" />
     </task>
     <servers />
   </component>
