@@ -1,6 +1,0 @@
-#! /bin/bash
-
-
-make skiperror
-
-./push_swap 1 4 5 3
