@@ -4,8 +4,9 @@ FLAGS = -Wall -Wextra -Werror
 SRC =   srcs/push_swap.c          \
         srcs/errors.c             \
         srcs/stack_moves.c        \
-        srcs/markup_evol.c        \
         srcs/utils.c              \
+        srcs/sorter.c             \
+        srcs/large_stack.c
 
 INC =   inc/push_swap.h             \
         libft/libft.h               \

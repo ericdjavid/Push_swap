@@ -6,9 +6,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a8f1722-b58b-431d-a075-72f846fe4820" name="Default Changelist" comment="">
+    <list default="true" id="ef197b9e-2839-4692-b11e-a6655e76b107" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inc/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/push_swap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_atoi.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_atoi.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/push_swap" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/errors.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/errors.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/markup_evol.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/push_swap.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/push_swap.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/sorter.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/sorter.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/stack_moves.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/stack_moves.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1vFlKFljRUwNbR9nSjG5rqGTdz9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1xiKGPlW36wbtUysT1nDCHh1Jpd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,9 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../VBRAZ_push_swap" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
@@ -46,56 +52,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4a8f1722-b58b-431d-a075-72f846fe4820" name="Default Changelist" comment="" />
-      <created>1626165652150</created>
+      <changelist id="ef197b9e-2839-4692-b11e-a6655e76b107" name="Default Changelist" comment="" />
+      <created>1630832375579</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1626165652150</updated>
-      <workItem from="1626165653321" duration="4575000" />
-      <workItem from="1626264308326" duration="15000" />
-      <workItem from="1626765929364" duration="12002000" />
-      <workItem from="1626848551330" duration="2226000" />
-      <workItem from="1626856130642" duration="595000" />
-      <workItem from="1626882793194" duration="785000" />
-      <workItem from="1626940559278" duration="406000" />
-      <workItem from="1626940985286" duration="11529000" />
-      <workItem from="1627024255416" duration="9395000" />
-      <workItem from="1627635481973" duration="3899000" />
-      <workItem from="1627731456481" duration="10299000" />
-      <workItem from="1627831756985" duration="2479000" />
-      <workItem from="1627916361819" duration="778000" />
-      <workItem from="1628260051157" duration="4581000" />
-      <workItem from="1628322687084" duration="9978000" />
-      <workItem from="1628497602356" duration="6897000" />
-      <workItem from="1628582920944" duration="6964000" />
-      <workItem from="1629109918504" duration="16000" />
-      <workItem from="1629116146646" duration="585000" />
-      <workItem from="1629193288836" duration="2029000" />
-      <workItem from="1629722397800" duration="8868000" />
-      <workItem from="1629820908342" duration="5882000" />
-      <workItem from="1629882361576" duration="8753000" />
-      <workItem from="1630048048694" duration="16168000" />
-      <workItem from="1630135272056" duration="2223000" />
+      <updated>1630832375579</updated>
+      <workItem from="1630832377559" duration="14985000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
