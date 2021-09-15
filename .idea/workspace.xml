@@ -10,29 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef197b9e-2839-4692-b11e-a6655e76b107" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/100nbs.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/30nbs.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/500nbs.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checker" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/free.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/init.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/large_strat1.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/large_strat2.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/push_to_b_groups.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checker_linux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/push_swap.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft" beforeDir="false" afterPath="$PROJECT_DIR$/libft" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/ft_atoi.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_atoi.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/push_swap" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/errors.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/errors.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/large_stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/large_stack.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/push_swap.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/push_swap.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/sorter.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/sorter.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/stack_moves.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/stack_moves.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +71,7 @@
       <workItem from="1631450672480" duration="11397000" />
       <workItem from="1631520608383" duration="15042000" />
       <workItem from="1631607050733" duration="12852000" />
-      <workItem from="1631690252279" duration="21913000" />
+      <workItem from="1631690252279" duration="22220000" />
     </task>
     <servers />
   </component>
