@@ -1,17 +1,17 @@
 # :trident: PUSH_SWAP PROJECT :trident:
 
-## Description du projet
+## Description du projet :bookmark_tabs:
 Créer un programme qui prend en paramètres des entiers (positifs ou négatifs) et les trie de manière croissante avec le moins d'actions possibles. Vous avez 2 stacks (A et B) et les nombres sont initialisés sur la première.
 
 Les coups possibles sont :
-SA/SB : swap le premier et le deuxième nombre de la stack
-RA/RB : envoie le premier nombre de la stack en fin de liste
-RRA/RRB : envoie le dernier nombre de la stack en tête de liste
-RR/RRR : comme les deux actions précèdentes mais pour les 2 stacks en même temps (PS: je n'ai pas utilisé ces actions dans le cadre de mon projet).
+- SA/SB : swap le premier et le deuxième nombre de la stack
+- RA/RB : envoie le premier nombre de la stack en fin de liste
+- RRA/RRB : envoie le dernier nombre de la stack en tête de liste
+- RR/RRR : comme les deux actions précèdentes mais pour les 2 stacks en même temps (PS: je n'ai pas utilisé ces actions dans le cadre de mon projet).
 
 Vous devez faire environ moins de 1000 coups pour 100 arguments et 8000 pour 500 arguments pour valider le projet.
 
-## Methodologie
+## Methodologie :fountain_pen:
 1. j'ajoute des index aux nombres
 2. J'identifie le nombre pivot, celui à partir duquel on obtient la plus grande suite de nombre respectant l'un des deux critères suivants 
 	- soit avec l'index croissant consécutif le plus long 
@@ -23,7 +23,7 @@ Vous devez faire environ moins de 1000 coups pour 100 arguments et 8000 pour 500
 6. Si A n'est pas trié, je rotate jusqu'à ce que le plus petit nombre soit en première position
 
 
-## Faire fonctionner le code
+## Faire fonctionner le code :hammer_and_wrench:
 - git clone https://github.com/ericdjavid/push_swap.git
 - make
 - ./push_swap [paramètres]
