@@ -1,0 +1,4 @@
+#PUSH_SWAP PROJECT
+
+ute des index aux nombres 2. J'identifie le nombre pivot, celui à partir duquel on obtient la plus grande suite de nombre respectant l'un des deux critères suivants 2.1 soit avec l'index croissant consécutif le plus long 2.2 soit la suite de nombre la plus grande (non consécutive) 3. J'envoie tous les nombres qui ne font pas partie de cette suite en stack B 3.1 attention, si la liste de nombre est > 100, je divise la liste en 2 ou 3 groupes et j'envoie d'abord les nombres du 1er groupe, ainsi de suite... 4. Pour chaque nombre de la stack B, je calcule le nombre de coup pour l'envoyer en stack A et pour rendre la stack A prête à le recevoir 5. J'envoie le nombre qui nécessite le moins de coup possible et j'itère jusqu'à que la stack B soit vide 6. Si à n'est pas trié, je rotate jusqu'à ce que le plus petit nombre soit en première position:wq
+
