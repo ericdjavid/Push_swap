@@ -86,132 +86,223 @@ void affect_target_index(s_control *list)
 	}
 }
 
-void affect_keep(s_stack *a)
+int find_index(s_stack *x, int index)
 {
 	s_element *temp;
-	int last_val;
+	int pos;
 
-	temp = a->first;
-	while (temp->next_one != NULL)
-	{
-		if (temp->index == (temp->next_one->index - 1))
-		{
-			temp->keep = TRUE;
-			temp->next_one->keep = TRUE;
-			temp = temp->next_one;
-		}
-		else
-			temp->keep = FALSE;
-		last_val = temp->index;
-		temp = temp->next_one;
-	}
-	if (temp->index == last_val + 1)
-		temp->keep = TRUE;
-}
-
-int get_keep(s_element *temp)
-{
-	int i;
-
-	i = 0;
-	while (temp != NULL && temp->keep == TRUE)
-	{
-		i++;
-		temp = temp->next_one;
-	}
-	return (i);
-}
-
-//un keep de plus à garder
-void find_largest_keep(s_control *list)
-{
-	s_element *temp;
-	int count;
-	int index;
-	int tempo;
-
-	count = 0;
-	temp = list->a->first;
+	pos = 0;
+	temp = x->first;
 	while (temp != NULL)
 	{
-		if (temp->keep == TRUE)
-		{
-			index = temp->index;
-			if ((tempo = get_keep(temp)) > count)
-			{
-				list->index_push = index;
-				count = tempo;
-			}
-		}
+		pos++;
+		if (temp->index == index)
+			return (pos);
 		temp = temp->next_one;
-		list->index_nb = count;
 	}
-	printf("\n largest keep is index %d with %d true\n", list->index_push, count);
+	return (-1);
 }
 
-void push_other_than_largest(s_control *list)
+int count_to_top(s_stack *x, s_element *elem)
 {
-	s_element *temp;
-	int dimin;
-	int i;
+	int pos;
+	int pos2;
 
-//	if (list->index_nb != 0)
-		dimin = list->index_nb;
-//	else
-//		dimin = 3;
-	i = list->count;
-	temp = list->a->first;
-	while (i - dimin > 0)
+	pos = find_index(x, elem->index);
+	if (pos == 2)
 	{
-		if (temp->index == list->index_push)
-		{
-			while (list->index_nb > 0)
-			{
-				list->action_nb += rotate_x(list->a);
-				list->index_nb--;
-			}
-		}
-		i--;
-		push_b(list);
-		temp = list->a->first;
+		if (x->type == 0)
+			return (1);
+		return (2);
+	}
+	if (((float)pos / (float)compute_stack_size(x)) <= 0.5)
+	{
+		if (x->type == 0)
+			return(pos - 1);
+		return (pos);
+	}
+	else
+	{
+		pos2 = compute_stack_size(x) - pos + 2;
+		if (x->type == 0)
+			return(pos2 - 1);
+		return (pos2);
 	}
 }
 
-void sort_b(s_control *list)
+void put_action_count(s_stack *x)
 {
 	s_element *temp;
 
-	if (list->a->first == NULL)
-		push_a(list);
-	while (list->b->first)
+	temp = x->first;
+	while (temp != NULL)
 	{
-		temp = list->b->first;
-		if (temp->index == list->a->first->index - 1)
+		temp->count_for_sort = count_to_top(x, temp);
+		temp = temp->next_one;
+	}
+}
+
+int find_action_index(s_stack *x, int index)
+{
+	s_element *temp;
+
+	temp = x->first;
+	while (temp != NULL)
+	{
+		if (temp->index == index)
+			return (temp->count_for_sort);
+		temp = temp->next_one;
+	}
+	return (0);
+}
+
+int push_to_top(s_stack *x, s_element *elem)
+{
+	int pos;
+	int pos2;
+	int	i;
+
+	i = 0;
+	if (x->first == elem)
+		return (FAILURE);
+	pos = find_index(x, elem->index);
+	if (pos == 2)
+	{
+		rotate_x(x);
+		return (SUCCESS);
+	}
+	if (((float)pos / (float)compute_stack_size(x)) <= 0.5)
+	{
+		while (pos-- > 1 && ++i)
+			rotate_x(x);
+		return (i);
+	}
+	else
+	{
+		pos2 = compute_stack_size(x) - pos + 1;
+		while (pos2-- && ++i)
+			reverse_rotate_x(x);
+		return (i);
+	}
+}
+
+s_element *find_lower_action(s_stack *x)
+{
+	s_element *temp;
+	s_element *minimal;
+
+	temp = x->first;
+	minimal = temp;
+	temp = temp->next_one;
+	while (temp != NULL)
+	{
+		if (temp->count_for_sort < minimal->count_for_sort)
+			minimal = temp;
+		temp = temp->next_one;
+	}
+	return (minimal);
+}
+
+void consolid_action_count(s_control *list)
+{
+	s_element  *temp;
+	s_element *min;
+	s_element *max;
+
+	put_action_count(list->a);
+	put_action_count(list->b);
+	min = find_min_elem(list->a);
+	max = find_max_elem(list->a);
+	temp = list->b->first;
+
+	while (temp != NULL)
+	{
+		if(temp->index < min->index)
+			temp->count_for_sort += min->count_for_sort;
+		else if(temp->index > max->index)
+			temp->count_for_sort += max->count_for_sort;
+		else if (find_index(list->a, (temp->index + 1)) != -1)
+			temp->count_for_sort += find_action_index(list->a, temp->index + 1);
+		else if (temp->index > min->index && temp->index < max->index && temp->index > last_stack_elem(list->a)->index
+			&& temp->index < list->a->first->index)
+			return;
+		else if (temp->index > min->index && temp->index < max->index)
+			temp->count_for_sort += find_just_after(list->a, temp)->count_for_sort;
+		else
+			temp->count_for_sort = 666666;
+		temp = temp->next_one;
+	}
+}
+
+void make_moves(s_control *list)
+{
+	s_element *min;
+	s_element *max;
+	s_element *temp;
+
+	while (compute_stack_size(list->b))
+	{
+		min = find_min_elem(list->a);
+		max = find_max_elem(list->a);
+		consolid_action_count(list);
+		temp = find_lower_action(list->b);
+		if (temp->index < min->index || temp->index > max->index )
 		{
+			list->action_nb += push_to_top(list->a, min);
+			list->action_nb += push_to_top(list->b, temp);
 			push_a(list);
-			temp = list->b->first;
+			continue;
 		}
-		if (list->b->first && temp->index == last_stack_elem(list->a)->index + 1)
+		if (find_index(list->a, (temp->index + 1)) != -1)
 		{
+			list->action_nb += push_to_top(list->a, find_elem_of_index(list->a, (temp->index + 1)));
+			list->action_nb += push_to_top(list->b, temp);
 			push_a(list);
-			list->action_nb += rotate_x(list->a);
+			continue;
 		}
-		if (list->b->first)
-			list->action_nb += rotate_x(list->b);
+		if (temp->index < max->index && temp->index > min->index && temp->index > last_stack_elem(list->a)->index
+			&& temp->index < list->a->first->index)
+		{
+			push_to_top(list->b, temp);
+			push_a(list);
+			continue;
+		}
+		if (temp->index < max->index && temp->index > min->index)
+		{
+			push_to_top(list->a, find_just_after(list->a, temp));
+			push_to_top(list->b, temp);
+			push_a(list);
+			continue;
+		}
 	}
 }
 
 void large_stack_strat(s_control *list)
 {
+	int s1;
+	int s2;
 	copy_stack(list);
 	sort_insertion(list->a_cpy);
 	affect_copy_index(list->a_cpy);
 	affect_target_index(list);
-	affect_keep(list->a);
-	find_largest_keep(list);
-	displayer(list);
-	push_other_than_largest(list);
-	sort_b(list);
-	displayer(list);
 
+	s1 = strat1(list);
+	s2 = strat2(list);
+	int index_count;
+	if (s1 > s2)
+	{
+		find_keep_nb(list->s2_markup_head, list->a, TRUE);
+		index_count = s1;
+	}
+	else
+	{
+		find_keep_nb_str2(list->s2_markup_head, list->a, TRUE);
+		index_count = s2;
+	}
+	list->group_count = ft_max(1, (list->count) / 150.0);
+	list->group_size = ((list->count) / list->group_count);
+	push_to_b_groups(list, index_count);
+	make_moves(list);
+	if (!is_sorted(list->a))
+		push_to_top(list->a, find_elem_of_index(list->a,0));
 }

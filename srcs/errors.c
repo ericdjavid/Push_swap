@@ -12,10 +12,10 @@
 
 #include "../inc/push_swap.h"
 
-void	error()
+void	error(s_control *list)
 {
-	ft_putendl_fd("error\n", 2);
-	//TODO FREE THINGS
+	ft_putendl_fd("Error", 2);
+	free_all(list);
 	exit (EXIT_FAILURE);
 }
 
@@ -23,6 +23,8 @@ s_bool	is_doublon(s_stack *a)
 {
 	s_element *temp;
 
+	if (a->first == NULL)
+		return TRUE;
 	temp = a->first;
 	while (temp->next_one != NULL)
 	{

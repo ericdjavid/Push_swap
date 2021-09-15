@@ -16,6 +16,8 @@ void push_b(s_control *list)
 {
     s_element *temp;
 
+	if (list->a->first == NULL)
+		return;
     temp = list->a->first;
     list->a->first = list->a->first->next_one;
     if (list->b->first == NULL)
@@ -37,9 +39,9 @@ void push_a(s_control *list)
 {
 	s_element *temp;
 
-	temp = list->b->first;
 	if (list->b->first == NULL)
 		return;
+	temp = list->b->first;
 	list->b->first = list->b->first->next_one;
 	if (list->a->first == NULL)
 	{
@@ -58,14 +60,13 @@ void push_a(s_control *list)
 int    swap_x(s_stack *x)
 {
     s_element *temp;
-    int swap;
 
     if (x->first == NULL || x->first->next_one == NULL)
-        return (0);
+        return (-1);
     temp = x->first->next_one;
-    swap = temp->number;
-    temp->number = x->first->number;
-    x->first->number = swap;
+    x->first->next_one = temp->next_one;
+    temp->next_one = x->first;
+    x->first = temp;
     if (x->type == 0)
     	ft_putendl_fd("sa", 1);
     else
@@ -101,29 +102,22 @@ int 	rotate_x(s_stack *x)
 	return (1);
 }
 
-int reverse_rotate_x(s_stack *x)
+int	reverse_rotate_x(s_stack *x)
 {
-	s_element *temp;
-	int i;
+	s_element	*prev;
+	s_element	*elem;
 
-	i = 1;
-	if (x->first == NULL || x->first->next_one == NULL)
+	if (!x->first || !x->first->next_one || !x)
 		return (0);
-	temp = x->first;
-	while (temp->next_one != NULL)
+	elem = x->first;
+	while (elem->next_one)
 	{
-		temp = temp->next_one;
-		i++;
+		prev = elem;
+		elem = elem->next_one;
 	}
-	temp = x->first;
-	while (i > 2)
-	{
-		temp = temp->next_one;
-		i--;
-	}
-	add_beg_list(x, temp->next_one->number);
-	free(temp->next_one);
-	temp->next_one = NULL;
+	elem->next_one = x->first;
+	x->first = elem;
+	prev->next_one = NULL;
 	if (x->type == 0)
 		ft_putendl_fd("rra", 1);
 	else

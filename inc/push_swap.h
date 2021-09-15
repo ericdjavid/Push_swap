@@ -16,6 +16,8 @@
 # include "../libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
+# define RB_STRAT 0
+# define RRB_STRAT 1
 
 typedef enum s_status {
 	FAILURE,
@@ -30,6 +32,7 @@ typedef enum t_bool {
 typedef struct t_element {
 	int	number;
 	int index;
+	int count_for_sort;
 	struct t_element *next_one;
 	s_bool keep;
 }	s_element;
@@ -44,15 +47,19 @@ typedef struct s_control {
 	s_stack	*a;
 	s_stack *b;
 	s_stack	*a_cpy;
+	s_element *temp;
 	int	count;
 	int	action_nb;
 	int index_push;
 	int index_nb;
+	int	s2_markup_head;
+	int group_count;
+	int group_size;
 
 } s_control;
 
 /* prototypes */
-void 	error();
+void	error(s_control *list);
 void 	check_arg_errors(char *arg);
 void	add_beg_list(s_stack *x, int numb);
 void	add_end_list(s_stack *x, int numb);
@@ -78,13 +85,24 @@ void large_stack_strat(s_control *list);
 void copy_stack(s_control *list);
 void affect_copy_index(s_stack *cpy_a);
 void affect_target_index(s_control *list);
-void affect_keep(s_stack *a);
-void find_largest_keep(s_control *list);
-int get_keep(s_element *temp);
-void push_other_than_largest(s_control *list);
 void init_values(s_stack *a);
 void add_full_elem_beg_list(s_stack *from, s_stack *to);
-void sort_b(s_control *list);
-int	push_swap_atoi(const char *str);
+long	push_swap_atoi(const char *str, s_control *list);
+int find_smallest_nb(s_stack *x, int *pos);
+int strat2(s_control *list);
+void free_stack(s_stack *x);
+int find_index(s_stack *x, int index);
+s_control	*init();
+void free_all(s_control *list);
+s_element *find_min_elem(s_stack *x);
+s_element *find_max_elem(s_stack *x);
+s_element *find_elem_of_index(s_stack *x, int index);
+int find_keep_nb_str2(int index, s_stack *a, s_bool affect);
+int strat1(s_control *list);
+int find_keep_nb(int index, s_stack *a, s_bool affect);
+int	ft_max(int a, int b);
+void push_to_b_groups(s_control *list, int index_count);
+int push_to_top(s_stack *x, s_element *elem);
+s_element *find_just_after(s_stack *x, s_element *elem);
 
 #endif
