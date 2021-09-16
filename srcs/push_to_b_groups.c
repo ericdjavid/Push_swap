@@ -12,10 +12,10 @@
 
 #include "../inc/push_swap.h"
 
-s_element	*best_group_elem(s_stack *x, int cur_group, int group_size)
+t_element	*best_group_elem(t_stack *x, int cur_group, int group_size)
 {
-	s_element	*temp;
-	s_element	*good;
+	t_element	*temp;
+	t_element	*good;
 	int			distance;
 	int			cur_dist;
 
@@ -45,11 +45,11 @@ s_element	*best_group_elem(s_stack *x, int cur_group, int group_size)
 	return (good);
 }
 
-void	push_to_b_groups(s_control *list, int index_count)
+void	push_to_b_groups(t_control *list, int index_count)
 {
 	int			size_list;
 	int			cur_group;
-	s_element	*temp;
+	t_element	*temp;
 
 	cur_group = 1;
 	size_list = list->count;

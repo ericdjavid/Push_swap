@@ -12,9 +12,9 @@
 
 #include "../inc/push_swap.h"
 
-void	free_stack(s_stack *x)
+void	free_stack(t_stack *x)
 {
-	s_element	*elem;
+	t_element	*elem;
 
 	elem = x->first;
 	while (elem)
@@ -25,7 +25,7 @@ void	free_stack(s_stack *x)
 	}
 }
 
-void	free_all(s_control *list)
+void	free_all(t_control *list)
 {
 	free_stack(list->a);
 	free_stack(list->b);

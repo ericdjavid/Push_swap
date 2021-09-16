@@ -12,24 +12,17 @@
 
 #include "../inc/push_swap.h"
 
-void	two_elems(s_control *list)
+void	two_elems(t_control *list)
 {
 	if (is_sorted(list->a))
 		return ;
 	list->action_nb += swap_x(list->a);
 }
 
-void	three_elems(s_control *list)
+void	three_elems(t_control *list, int first, int second, int third)
 {
-	int	first;
-	int	second;
-	int	third;
-
 	if (is_sorted(list->a))
 		return ;
-	first = list->a->first->number;
-	second = list->a->first->next_one->number;
-	third = list->a->first->next_one->next_one->number;
 	if (first < second && second > third)
 	{
 		if (first < third)
@@ -38,9 +31,7 @@ void	three_elems(s_control *list)
 			list->action_nb += rotate_x(list->a);
 		}
 		if (first > third)
-		{
 			list->action_nb += reverse_rotate_x(list->a);
-		}
 	}
 	if (first > second && second < third)
 	{
@@ -56,7 +47,7 @@ void	three_elems(s_control *list)
 	}
 }
 
-void	five_elems(s_control *list)
+void	five_elems(t_control *list)
 {
 	int	j;
 	int	pos;
@@ -76,17 +67,19 @@ void	five_elems(s_control *list)
 		}
 		push_b(list);
 	}
-	three_elems(list);
+	three_elems(list, list->a->first->number, list->a->first->next_one->number,
+				list->a->first->next_one->next_one->number);
 	while (compute_stack_size(list->b))
 		push_a(list);
 }
 
-void	sort(s_control *list)
+void	sort(t_control *list)
 {
 	if (list->count == 2)
 		two_elems(list);
 	if (list->count == 3)
-		three_elems(list);
+		three_elems(list, list->a->first->number, list->a->first->next_one->number,
+			  list->a->first->next_one->next_one->number);
 	if ((list->count > 3) && (list->count < 6))
 		five_elems(list);
 	if (list->count >= 6)

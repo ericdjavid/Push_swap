@@ -12,16 +12,16 @@
 
 #include "../inc/push_swap.h"
 
-void	error(s_control *list)
+void	error(t_control *list)
 {
 	ft_putendl_fd("Error", 2);
 	free_all(list);
 	exit (EXIT_FAILURE);
 }
 
-s_bool	is_doublon(s_stack *a)
+t_bool	is_doublon(t_stack *a)
 {
-	s_element	*temp;
+	t_element	*temp;
 
 	if (a->first == NULL)
 		return (TRUE);
@@ -37,10 +37,10 @@ s_bool	is_doublon(s_stack *a)
 	return (FALSE);
 }
 
-s_bool	is_in_stack(s_stack *x, s_element *to_check)
+t_bool	is_in_stack(t_stack *x, t_element *to_check)
 {
 	int			i;
-	s_element	*temp;
+	t_element	*temp;
 
 	i = to_check->number;
 	temp = x->first;

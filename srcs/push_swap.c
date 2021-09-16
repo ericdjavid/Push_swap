@@ -12,10 +12,10 @@
 
 #include "../inc/push_swap.h"
 
-void	get_numbs(char *str, s_control *list)
+void	get_numbs(char *str, t_control *list)
 {
 	long	nb;
-	s_bool	go;
+	t_bool	go;
 
 	go = TRUE;
 	while (*str)
@@ -34,7 +34,7 @@ void	get_numbs(char *str, s_control *list)
 }
 
 /* function that gets arguments and convert them into number */
-void	convert_arg(char **argv, s_control *list)
+void	convert_arg(char **argv, t_control *list)
 {
 	argv++;
 	while (*argv)
@@ -50,7 +50,7 @@ void	convert_arg(char **argv, s_control *list)
 
 int	main(int argc, char **argv)
 {
-	s_control	*list;
+	t_control	*list;
 
 	if (argc == 1)
 		exit(FAILURE);

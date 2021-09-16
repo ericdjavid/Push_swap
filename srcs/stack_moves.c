@@ -12,9 +12,9 @@
 
 #include "../inc/push_swap.h"
 
-void	push_b(s_control *list)
+void	push_b(t_control *list)
 {
-	s_element	*temp;
+	t_element	*temp;
 
 	if (list->a->first == NULL)
 		return ;
@@ -34,9 +34,9 @@ void	push_b(s_control *list)
 	list->action_nb++;
 }
 
-void	push_a(s_control *list)
+void	push_a(t_control *list)
 {
-	s_element	*temp;
+	t_element	*temp;
 
 	if (list->b->first == NULL)
 		return ;
@@ -56,9 +56,9 @@ void	push_a(s_control *list)
 	list->action_nb++;
 }
 
-int		swap_x(s_stack *x)
+int		swap_x(t_stack *x)
 {
-	s_element	*temp;
+	t_element	*temp;
 
 	if (x->first == NULL || x->first->next_one == NULL)
 		return (-1);
@@ -73,13 +73,17 @@ int		swap_x(s_stack *x)
 	return (1);
 }
 
-int		rotate_x(s_stack *x)
+int		rotate_x(t_stack *x)
 {
-	s_element	*temp;
+	t_element	*temp;
 	int			nb_temp;
+	t_bool 		keep;
+	int 		index;
 
 	keep = x->first->keep;
 	temp = x->first;
+	nb_temp = x->first->number;
+	index = x->first->index;
 	while (temp->next_one != NULL)
 	{
 		temp->number = temp->next_one->number;
@@ -97,10 +101,10 @@ int		rotate_x(s_stack *x)
 	return (1);
 }
 
-int		reverse_rotate_x(s_stack *x)
+int		reverse_rotate_x(t_stack *x)
 {
-	s_element	*prev;
-	s_element	*elem;
+	t_element	*prev;
+	t_element	*elem;
 
 	if ((!x->first) || (!x->first->next_one) || (!x))
 		return (0);

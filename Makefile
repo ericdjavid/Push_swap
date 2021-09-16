@@ -5,8 +5,12 @@ SRC =   srcs/push_swap.c          \
         srcs/errors.c             \
         srcs/stack_moves.c        \
         srcs/utils.c              \
+        srcs/utils2.c             \
+        srcs/utils3.c             \
+        srcs/utils4.c             \
         srcs/sorter.c             \
         srcs/large_stack.c         \
+        srcs/large_stack2.c         \
         srcs/large_strat1.c         \
         srcs/large_strat2.c         \
         srcs/free.c                 \

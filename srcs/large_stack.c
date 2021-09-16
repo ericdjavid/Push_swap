@@ -12,152 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void	copy_stack(s_control *list)
-{
-	s_element	*temp;
-
-	temp = list->a->first;
-	while (temp != NULL)
-	{
-		add_end_list(list->a_cpy, temp->number);
-		temp = temp->next_one;
-	}
-}
-
-void	sort_insertion(s_stack *a_cpy)
-{
-	s_element	*temp;
-	s_element	*temp2;
-	int			tempo;
-
-	temp = a_cpy->first;
-	temp2 = a_cpy->first;
-	while (!is_sorted(a_cpy))
-	{
-		while (temp != NULL)
-		{
-			while (temp2->next_one != NULL
-				&& temp2->next_one->number <= temp->number)
-				temp2 = temp2->next_one;
-			tempo = temp2->number;
-			temp2->number = temp->number;
-			temp->number = tempo;
-			temp2 = a_cpy->first;
-			temp = temp->next_one;
-		}
-		temp = a_cpy->first;
-	}
-}
-
-void	affect_copy_index(s_stack *cpy_a)
-{
-	s_element	*temp;
-	int			index;
-
-	index = 0;
-	temp = cpy_a->first;
-	while (temp != NULL)
-	{
-		temp->index = index;
-		temp = temp->next_one;
-		index++;
-	}
-}
-
-void	affect_target_index(s_control *list)
-{
-	s_element	*temp;
-	s_element	*temp2;
-
-	temp = list->a->first;
-	temp2 = list->a_cpy->first;
-	while (temp != NULL)
-	{
-		while (temp2 != NULL)
-		{
-			if (temp2->number == temp->number)
-			{
-				temp->index = temp2->index;
-				break ;
-			}
-			temp2 = temp2->next_one;
-		}
-		temp2 = list->a_cpy->first;
-		temp = temp->next_one;
-	}
-}
-
-int	find_index(s_stack *x, int index)
-{
-	s_element	*temp;
-	int			pos;
-
-	pos = 0;
-	temp = x->first;
-	while (temp != NULL)
-	{
-		pos++;
-		if (temp->index == index)
-			return (pos);
-		temp = temp->next_one;
-	}
-	return (-1);
-}
-
-int	count_to_top(s_stack *x, s_element *elem)
-{
-	int	pos;
-	int	pos2;
-
-	pos = find_index(x, elem->index);
-	if (pos == 2)
-	{
-		if (x->type == 0)
-			return (1);
-		return (2);
-	}
-	if (((float)pos / (float)compute_stack_size(x)) <= 0.5)
-	{
-		if (x->type == 0)
-			return (pos - 1);
-		return (pos);
-	}
-	else
-	{
-		pos2 = compute_stack_size(x) - pos + 2;
-		if (x->type == 0)
-			return (pos2 - 1);
-		return (pos2);
-	}
-}
-
-void	put_action_count(s_stack *x)
-{
-	s_element	*temp;
-
-	temp = x->first;
-	while (temp != NULL)
-	{
-		temp->count_for_sort = count_to_top(x, temp);
-		temp = temp->next_one;
-	}
-}
-
-int	find_action_index(s_stack *x, int index)
-{
-	s_element *temp;
-
-	temp = x->first;
-	while (temp != NULL)
-	{
-		if (temp->index == index)
-			return (temp->count_for_sort);
-		temp = temp->next_one;
-	}
-	return (0);
-}
-
-int	push_to_top(s_stack *x, s_element *elem)
+int	push_to_top(t_stack *x, t_element *elem)
 {
 	int	pos;
 	int	pos2;
@@ -187,10 +42,10 @@ int	push_to_top(s_stack *x, s_element *elem)
 	}
 }
 
-s_element	*find_lower_action(s_stack *x)
+t_element	*find_lower_action(t_stack *x)
 {
-	s_element	*temp;
-	s_element	*minimal;
+	t_element	*temp;
+	t_element	*minimal;
 
 	temp = x->first;
 	minimal = temp;
@@ -204,11 +59,11 @@ s_element	*find_lower_action(s_stack *x)
 	return (minimal);
 }
 
-void	consolid_action_count(s_control *list)
+void	consolid_action_count(t_control *list)
 {
-	s_element	*temp;
-	s_element	*min;
-	s_element	*max;
+	t_element	*temp;
+	t_element	*min;
+	t_element	*max;
 
 	put_action_count(list->a);
 	put_action_count(list->b);
@@ -235,11 +90,11 @@ void	consolid_action_count(s_control *list)
 	}
 }
 
-void	make_moves(s_control *list)
+void	make_moves(t_control *list)
 {
-	s_element	*min;
-	s_element	*max;
-	s_element	*temp;
+	t_element	*min;
+	t_element	*max;
+	t_element	*temp;
 
 	while (compute_stack_size(list->b))
 	{
@@ -278,7 +133,7 @@ void	make_moves(s_control *list)
 	}
 }
 
-void	large_stack_strat(s_control *list)
+void	large_stack_strat(t_control *list)
 {
 	int	s1;
 	int	s2;

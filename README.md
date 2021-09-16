@@ -1,31 +1,34 @@
 # :trident: PUSH_SWAP PROJECT :trident:
 
 ## Description du projet :bookmark_tabs:
-Créer un programme qui prend en paramètres des entiers (positifs ou négatifs) et les trie de manière croissante avec le moins d'actions possibles. Vous avez 2 stacks (A et B) et les nombres sont initialisés sur la première.
+Crï¿½er un programme qui prend en paramï¿½tres des entiers (positifs ou nï¿½gatifs) et les trie de maniï¿½re croissante avec le moins d'actions possibles. Vous avez 2 stacks (A et B) et les nombres sont initialisï¿½s sur la premiï¿½re.
 
 Les coups possibles sont :
-- SA/SB : swap le premier et le deuxième nombre de la stack
+- SA/SB : swap le premier et le deuxiï¿½me nombre de la stack
 - RA/RB : envoie le premier nombre de la stack en fin de liste
-- RRA/RRB : envoie le dernier nombre de la stack en tête de liste
-- RR/RRR : comme les deux actions précèdentes mais pour les 2 stacks en même temps (PS: je n'ai pas utilisé ces actions dans le cadre de mon projet).
+- RRA/RRB : envoie le dernier nombre de la stack en tï¿½te de liste
+- RR/RRR : comme les deux actions prï¿½cï¿½dentes mais pour les 2 stacks en mï¿½me temps (PS: je n'ai pas utilisï¿½ ces actions dans le cadre de mon projet).
 
 Vous devez faire environ moins de 1000 coups pour 100 arguments et 8000 pour 500 arguments pour valider le projet.
 
 ## Methodologie :fountain_pen:
 1. j'ajoute des index aux nombres
-2. J'identifie le nombre pivot, celui à partir duquel on obtient la plus grande suite de nombre respectant l'un des deux critères suivants 
-	- soit avec l'index croissant consécutif le plus long 
-	- soit la suite de nombre la plus grande (non consécutive) 
+2. J'identifie le nombre pivot, celui ï¿½ partir duquel on obtient la plus grande suite de nombre respectant l'un des deux critï¿½res suivants 
+	- soit avec l'index croissant consï¿½cutif le plus long 
+	- soit la suite de nombre la plus grande (non consï¿½cutive) 
 3. J'envoie tous les nombres qui ne font pas partie de cette suite en stack B 
 	3.1 attention, si la liste de nombre est > 100, je divise la liste en 2 ou 3 groupes et j'envoie d'abord les nombres du 1er groupe, ainsi de suite... 
-4. Pour chaque nombre de la stack B, je calcule le nombre de coup pour l'envoyer en stack A et pour rendre la stack A prête à le recevoir 
-5. J'envoie le nombre qui nécessite le moins de coup possible et j'itère jusqu'à que la stack B soit vide 
-6. Si A n'est pas trié, je rotate jusqu'à ce que le plus petit nombre soit en première position
+4. Pour chaque nombre de la stack B, je calcule le nombre de coup pour l'envoyer en stack A et pour rendre la stack A prï¿½te ï¿½ le recevoir 
+5. J'envoie le nombre qui nï¿½cessite le moins de coup possible et j'itï¿½re jusqu'ï¿½ que la stack B soit vide 
+6. Si A n'est pas triï¿½, je rotate jusqu'ï¿½ ce que le plus petit nombre soit en premiï¿½re position
 
 
 ## Faire fonctionner le code :hammer_and_wrench:
 - git clone https://github.com/ericdjavid/push_swap.git
 - make
-- ./push_swap [paramètres]
-	- vous pouvez également utiliser un fichier contenant les arguments pour les grandes séries avec la commande suivante :  xargs -a tests/fichier.txt ./push_swap
+- ./push_swap [paramï¿½tres]
+	- vous pouvez ï¿½galement utiliser un fichier contenant les arguments pour les grandes sï¿½ries avec la commande suivante :  xargs -a tests/fichier.txt ./push_swap
 
+## Testeurs
+- https://github.com/laisarena/push_swap_tester
+- https://github.com/lmalki-h/push_swap_tester
