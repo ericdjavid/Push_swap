@@ -68,7 +68,7 @@ void	five_elems(t_control *list)
 		push_b(list);
 	}
 	three_elems(list, list->a->first->number, list->a->first->next_one->number,
-				list->a->first->next_one->next_one->number);
+			 list->a->first->next_one->next_one->number);
 	while (compute_stack_size(list->b))
 		push_a(list);
 }
@@ -78,7 +78,8 @@ void	sort(t_control *list)
 	if (list->count == 2)
 		two_elems(list);
 	if (list->count == 3)
-		three_elems(list, list->a->first->number, list->a->first->next_one->number,
+		three_elems(list, list->a->first->number,
+			  list->a->first->next_one->number,
 			  list->a->first->next_one->next_one->number);
 	if ((list->count > 3) && (list->count < 6))
 		five_elems(list);

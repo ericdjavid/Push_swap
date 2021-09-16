@@ -86,7 +86,7 @@ t_bool	is_smallest(t_stack *x, int nb)
 	return (TRUE);
 }
 
-int		find_smallest_nb(t_stack *x, int *pos)
+int	find_smallest_nb(t_stack *x, int *pos)
 {
 	t_element	*temp;
 

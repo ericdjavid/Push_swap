@@ -19,13 +19,13 @@ int	find_keep_nb_str2(int index, t_stack *a, t_bool affect)
 	int			count;
 	int			comp;
 
-	i = compute_stack_size(a);
+	i = compute_stack_size(a) + 1;
 	count = 0;
 	temp = find_elem_of_index(a, index);
 	if (affect == TRUE)
 		temp->keep = TRUE;
 	comp = temp->number;
-	while (i)
+	while (i--)
 	{
 		if (temp->next_one == NULL)
 			temp = a->first;
@@ -38,7 +38,6 @@ int	find_keep_nb_str2(int index, t_stack *a, t_bool affect)
 			comp = temp->number;
 			count++;
 		}
-		i--;
 	}
 	return (count);
 }

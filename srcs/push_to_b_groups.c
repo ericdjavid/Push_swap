@@ -21,12 +21,9 @@ t_element	*best_group_elem(t_stack *x, int cur_group, int group_size)
 
 	distance = 9999;
 	temp = x->first;
-	cur_dist = 0;
 	good = NULL;
-	if (x->first == NULL)
+	if ((x->first == NULL) || (x->first->next_one == NULL))
 		return (NULL);
-	if (x->first->next_one == NULL)
-		return (x->first);
 	while (temp != NULL)
 	{
 		if (temp->index < (group_size * cur_group) && !temp->keep)
@@ -37,8 +34,6 @@ t_element	*best_group_elem(t_stack *x, int cur_group, int group_size)
 				distance = cur_dist;
 				good = temp;
 			}
-			if (distance == 1)
-				break ;
 		}
 		temp = temp->next_one;
 	}

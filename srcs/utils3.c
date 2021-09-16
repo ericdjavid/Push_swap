@@ -91,21 +91,16 @@ t_bool	is_sorted(t_stack *x)
 	return (TRUE);
 }
 
-void	display_list(t_stack *x, char z)
+t_bool	is_biggest(t_stack *x, int nb)
 {
 	t_element	*temp;
 
 	temp = x->first;
-	printf("--- Stack %c ---\n", z);
-	if (temp == NULL)
-	{
-		printf("stack %c is empty\n", z);
-		return ;
-	}
 	while (temp != NULL)
 	{
-		printf("%d [index : %d] [count_act : %d] [keep : %d]\n",
-			   temp->number, temp->index, temp->count_for_sort, temp->keep);
+		if (nb < temp->number)
+			return (FALSE);
 		temp = temp->next_one;
 	}
+	return (TRUE);
 }

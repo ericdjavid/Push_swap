@@ -56,7 +56,7 @@ void	push_a(t_control *list)
 	list->action_nb++;
 }
 
-int		swap_x(t_stack *x)
+int	swap_x(t_stack *x)
 {
 	t_element	*temp;
 
@@ -73,12 +73,12 @@ int		swap_x(t_stack *x)
 	return (1);
 }
 
-int		rotate_x(t_stack *x)
+int	rotate_x(t_stack *x)
 {
 	t_element	*temp;
 	int			nb_temp;
-	t_bool 		keep;
-	int 		index;
+	t_bool		keep;
+	int			index;
 
 	keep = x->first->keep;
 	temp = x->first;
@@ -101,7 +101,7 @@ int		rotate_x(t_stack *x)
 	return (1);
 }
 
-int		reverse_rotate_x(t_stack *x)
+int	reverse_rotate_x(t_stack *x)
 {
 	t_element	*prev;
 	t_element	*elem;

@@ -33,13 +33,10 @@ int	push_to_top(t_stack *x, t_element *elem)
 			rotate_x(x);
 		return (i);
 	}
-	else
-	{
-		pos2 = compute_stack_size(x) - pos + 1;
-		while (pos2-- && ++i)
-			reverse_rotate_x(x);
-		return (i);
-	}
+	pos2 = compute_stack_size(x) - pos + 1;
+	while (pos2-- && ++i)
+		reverse_rotate_x(x);
+	return (i);
 }
 
 t_element	*find_lower_action(t_stack *x)

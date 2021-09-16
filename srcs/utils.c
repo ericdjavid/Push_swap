@@ -20,18 +20,23 @@ void	displayer(t_control *list)
 	display_list(list->b, 'b');
 }
 
-t_bool	is_biggest(t_stack *x, int nb)
+void	display_list(t_stack *x, char z)
 {
 	t_element	*temp;
 
 	temp = x->first;
+	printf("--- Stack %c ---\n", z);
+	if (temp == NULL)
+	{
+		printf("stack %c is empty\n", z);
+		return ;
+	}
 	while (temp != NULL)
 	{
-		if (nb < temp->number)
-			return (FALSE);
+		printf("%d [index : %d] [count_act : %d] [keep : %d]\n",
+			   temp->number, temp->index, temp->count_for_sort, temp->keep);
 		temp = temp->next_one;
 	}
-	return (TRUE);
 }
 
 int	compute_stack_size(t_stack *x)
@@ -117,28 +122,4 @@ t_element	*find_elem_of_index(t_stack *x, int index)
 		temp = temp->next_one;
 	}
 	return (NULL);
-}
-
-t_element	*find_just_after(t_stack *x, t_element *elem)
-{
-	t_element	*temp;
-	int			idx;
-
-	idx = 99999;
-	temp = x->first;
-	while (temp != NULL)
-	{
-		if (temp->index > elem->index)
-			if (temp->index < idx)
-				idx = temp->index;
-		temp = temp->next_one;
-	}
-	return (find_elem_of_index(x, idx));
-}
-
-int	ft_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
 }
