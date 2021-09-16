@@ -14,13 +14,13 @@
 
 void	get_numbs(char *str, s_control *list)
 {
-	long nb;
-	s_bool go;
+	long	nb;
+	s_bool	go;
 
 	go = TRUE;
 	while (*str)
 	{
-		if(*str != ' ' && go)
+		if (*str != ' ' && go)
 		{
 			nb = push_swap_atoi(str, list);
 			if (nb > 2147483647 || nb < -2147483648)
@@ -34,7 +34,7 @@ void	get_numbs(char *str, s_control *list)
 }
 
 /* function that gets arguments and convert them into number */
-void convert_arg(char **argv, s_control *list)
+void	convert_arg(char **argv, s_control *list)
 {
 	argv++;
 	while (*argv)
@@ -42,10 +42,10 @@ void convert_arg(char **argv, s_control *list)
 		get_numbs(*argv, list);
 		argv++;
 	}
-	if(is_doublon(list->a))
+	if (is_doublon(list->a))
 		error(list);
-	if(list->count == 1)
-		exit(SUCCESS);
+	if (list->count == 1)
+		exit (SUCCESS);
 }
 
 int	main(int argc, char **argv)

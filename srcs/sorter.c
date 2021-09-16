@@ -12,21 +12,21 @@
 
 #include "../inc/push_swap.h"
 
-void 	two_elems(s_control *list)
+void	two_elems(s_control *list)
 {
 	if (is_sorted(list->a))
-		return;
+		return ;
 	list->action_nb += swap_x(list->a);
 }
 
-void 	three_elems(s_control *list)
+void	three_elems(s_control *list)
 {
 	int	first;
 	int	second;
 	int	third;
 
 	if (is_sorted(list->a))
-		return;
+		return ;
 	first = list->a->first->number;
 	second = list->a->first->next_one->number;
 	third = list->a->first->next_one->next_one->number;
@@ -56,21 +56,20 @@ void 	three_elems(s_control *list)
 	}
 }
 
-void five_elems(s_control *list)
+void	five_elems(s_control *list)
 {
 	int	j;
-	int pos;
+	int	pos;
 
 	pos = 0;
 	if (is_sorted(list->a))
-		return;
+		return ;
 	while (compute_stack_size(list->a) > 3)
 	{
 		j = find_smallest_nb(list->a, &pos);
-		while(list->a->first->number != j)
+		while (list->a->first->number != j)
 		{
-
-			if ((float)pos / ((float)list->count ) < 0.5)
+			if ((float)pos / ((float)list->count) < 0.5)
 				rotate_x(list->a);
 			else
 				reverse_rotate_x(list->a);
@@ -82,14 +81,14 @@ void five_elems(s_control *list)
 		push_a(list);
 }
 
-void 	sort(s_control *list)
+void	sort(s_control *list)
 {
-		if (list->count == 2)
-			two_elems(list);
-		if (list->count == 3) //if list already ordered, do nothing ? Just verify
-			three_elems(list);
-		if (list->count > 3 && list->count < 6)
-			five_elems(list);//TODO 9 8 7 6 5 not working
-		if (list->count >= 6)
-			large_stack_strat(list);
+	if (list->count == 2)
+		two_elems(list);
+	if (list->count == 3)
+		three_elems(list);
+	if ((list->count > 3) && (list->count < 6))
+		five_elems(list);
+	if (list->count >= 6)
+		large_stack_strat(list);
 }

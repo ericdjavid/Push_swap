@@ -21,10 +21,10 @@ void	error(s_control *list)
 
 s_bool	is_doublon(s_stack *a)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	if (a->first == NULL)
-		return TRUE;
+		return (TRUE);
 	temp = a->first;
 	while (temp->next_one != NULL)
 	{
@@ -34,13 +34,13 @@ s_bool	is_doublon(s_stack *a)
 		}
 		temp = temp->next_one;
 	}
-	return(FALSE);
+	return (FALSE);
 }
 
 s_bool	is_in_stack(s_stack *x, s_element *to_check)
 {
-	int i;
-	s_element *temp;
+	int			i;
+	s_element	*temp;
 
 	i = to_check->number;
 	temp = x->first;
@@ -52,5 +52,5 @@ s_bool	is_in_stack(s_stack *x, s_element *to_check)
 			return (TRUE);
 		}
 	}
-	return(FALSE);
+	return (FALSE);
 }

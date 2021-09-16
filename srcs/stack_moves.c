@@ -12,35 +12,34 @@
 
 #include "../inc/push_swap.h"
 
-void push_b(s_control *list)
+void	push_b(s_control *list)
 {
-    s_element *temp;
+	s_element	*temp;
 
 	if (list->a->first == NULL)
-		return;
-    temp = list->a->first;
-    list->a->first = list->a->first->next_one;
-    if (list->b->first == NULL)
-    {
-        list->b->first = temp;
-        temp->next_one = NULL;
+		return ;
+	temp = list->a->first;
+	list->a->first = list->a->first->next_one;
+	if (list->b->first == NULL)
+	{
+		list->b->first = temp;
+		temp->next_one = NULL;
 		ft_putendl_fd("pb", 1);
 		list->action_nb++;
-        return;
-    }
-    temp->next_one = list->b->first;
-    list->b->first = temp;
-    ft_putendl_fd("pb", 1);
-    list->action_nb++;
+		return ;
+	}
+	temp->next_one = list->b->first;
+	list->b->first = temp;
+	ft_putendl_fd("pb", 1);
+	list->action_nb++;
 }
 
-
-void push_a(s_control *list)
+void	push_a(s_control *list)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	if (list->b->first == NULL)
-		return;
+		return ;
 	temp = list->b->first;
 	list->b->first = list->b->first->next_one;
 	if (list->a->first == NULL)
@@ -49,7 +48,7 @@ void push_a(s_control *list)
 		temp->next_one = NULL;
 		ft_putendl_fd("pa", 1);
 		list->action_nb++;
-		return;
+		return ;
 	}
 	temp->next_one = list->a->first;
 	list->a->first = temp;
@@ -57,32 +56,28 @@ void push_a(s_control *list)
 	list->action_nb++;
 }
 
-int    swap_x(s_stack *x)
+int		swap_x(s_stack *x)
 {
-    s_element *temp;
+	s_element	*temp;
 
-    if (x->first == NULL || x->first->next_one == NULL)
-        return (-1);
-    temp = x->first->next_one;
-    x->first->next_one = temp->next_one;
-    temp->next_one = x->first;
-    x->first = temp;
-    if (x->type == 0)
-    	ft_putendl_fd("sa", 1);
-    else
+	if (x->first == NULL || x->first->next_one == NULL)
+		return (-1);
+	temp = x->first->next_one;
+	x->first->next_one = temp->next_one;
+	temp->next_one = x->first;
+	x->first = temp;
+	if (x->type == 0)
+		ft_putendl_fd("sa", 1);
+	else
 		ft_putendl_fd("sb", 1);
-    return (1);
+	return (1);
 }
 
-int 	rotate_x(s_stack *x)
+int		rotate_x(s_stack *x)
 {
-	s_element *temp;
-	int nb_temp;
-	int index;
-	s_bool keep;
+	s_element	*temp;
+	int			nb_temp;
 
-	nb_temp = x->first->number;
-	index = x->first->index;
 	keep = x->first->keep;
 	temp = x->first;
 	while (temp->next_one != NULL)
@@ -102,12 +97,12 @@ int 	rotate_x(s_stack *x)
 	return (1);
 }
 
-int	reverse_rotate_x(s_stack *x)
+int		reverse_rotate_x(s_stack *x)
 {
 	s_element	*prev;
 	s_element	*elem;
 
-	if (!x->first || !x->first->next_one || !x)
+	if ((!x->first) || (!x->first->next_one) || (!x))
 		return (0);
 	elem = x->first;
 	while (elem->next_one)

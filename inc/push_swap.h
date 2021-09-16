@@ -92,7 +92,7 @@ int find_smallest_nb(s_stack *x, int *pos);
 int strat2(s_control *list);
 void free_stack(s_stack *x);
 int find_index(s_stack *x, int index);
-s_control	*init();
+s_control	*init(void);
 void free_all(s_control *list);
 s_element *find_min_elem(s_stack *x);
 s_element *find_max_elem(s_stack *x);

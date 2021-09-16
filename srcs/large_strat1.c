@@ -12,11 +12,11 @@
 
 #include "../inc/push_swap.h"
 
-int find_keep_nb(int index, s_stack *a, s_bool affect)
+int	find_keep_nb(int index, s_stack *a, s_bool affect)
 {
-	s_element *temp;
-	int i;
-	int count;
+	s_element	*temp;
+	int			i;
+	int			count;
 
 	i = compute_stack_size(a);
 	count = 0;
@@ -43,10 +43,10 @@ int find_keep_nb(int index, s_stack *a, s_bool affect)
 	return (count);
 }
 
-int strat1(s_control *list)
+int	strat1(s_control *list)
 {
-	int nb_keep;
-	s_element *temp;
+	int			nb_keep;
+	s_element	*temp;
 
 	temp = list->a->first;
 	nb_keep = 0;

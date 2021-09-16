@@ -14,7 +14,7 @@
 
 void	add_beg_list(s_stack *x, int numb)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	temp = malloc(sizeof(*temp));
 	temp->number = numb;
@@ -30,7 +30,7 @@ void	add_beg_list(s_stack *x, int numb)
 
 void	add_full_elem_beg_list(s_stack *from, s_stack *to)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	temp = malloc(sizeof(*temp));
 	temp->number = from->first->number;
@@ -48,8 +48,8 @@ void	add_full_elem_beg_list(s_stack *from, s_stack *to)
 
 void	add_end_list(s_stack *x, int numb)
 {
-	s_element *temp;
-	s_element *temp2;
+	s_element	*temp;
+	s_element	*temp2;
 
 	temp = malloc(sizeof(*temp));
 	temp->number = numb;
@@ -62,7 +62,7 @@ void	add_end_list(s_stack *x, int numb)
 		return ;
 	}
 	temp2 = x->first;
-	while(temp2->next_one)
+	while (temp2->next_one)
 		temp2 = temp2->next_one;
 	temp2->next_one = temp;
 	temp->next_one = NULL;
@@ -70,16 +70,18 @@ void	add_end_list(s_stack *x, int numb)
 
 s_bool	is_sorted(s_stack *x)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	if (x->first == NULL || x->first->next_one == NULL)
-		return TRUE;
+		return (TRUE);
 	temp = x->first;
 	if (temp->number < temp->next_one->number && compute_stack_size(x) == 2)
-		return TRUE;
-	if (compute_stack_size(x) == 3 && temp->next_one->next_one != NULL && temp->number < temp->next_one->number
+		return (TRUE);
+	if (compute_stack_size(x) == 3
+		&& temp->next_one->next_one != NULL
+		&& temp->number < temp->next_one->number
 		&& temp->next_one->number < temp->next_one->next_one->number)
-		return TRUE;
+		return (TRUE);
 	while (temp->next_one != NULL)
 	{
 		if (temp->next_one->number < temp->number)
@@ -89,24 +91,26 @@ s_bool	is_sorted(s_stack *x)
 	return (TRUE);
 }
 
-void display_list(s_stack *x, char z)
+void	display_list(s_stack *x, char z)
 {
-	s_element *temp;
+	s_element	*temp;
+
 	temp = x->first;
 	printf("--- Stack %c ---\n", z);
 	if (temp == NULL)
 	{
 		printf("stack %c is empty\n", z);
-		return;
+		return ;
 	}
 	while (temp != NULL)
 	{
-		printf("%d [index : %d] [count_act : %d] [keep : %d]\n", temp->number, temp->index,  temp->count_for_sort, temp->keep);
+		printf("%d [index : %d] [count_act : %d] [keep : %d]\n",
+			temp->number, temp->index, temp->count_for_sort, temp->keep);
 		temp = temp->next_one;
 	}
 }
 
-void displayer(s_control *list)
+void	displayer(s_control *list)
 {
 	printf("\n");
 	display_list(list->a, 'a');
@@ -116,22 +120,22 @@ void displayer(s_control *list)
 
 s_bool	is_biggest(s_stack *x, int nb)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	temp = x->first;
 	while (temp != NULL)
 	{
-			if (nb < temp->number)
-				return FALSE;
-			temp = temp->next_one;
+		if (nb < temp->number)
+			return (FALSE);
+		temp = temp->next_one;
 	}
-	return TRUE;
+	return (TRUE);
 }
 
-int compute_stack_size(s_stack *x)
+int	compute_stack_size(s_stack *x)
 {
-	s_element *temp;
-	int count;
+	s_element	*temp;
+	int			count;
 
 	temp = x->first;
 	count = 0;
@@ -147,7 +151,7 @@ int compute_stack_size(s_stack *x)
 
 s_element	*last_stack_elem(s_stack *x)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	if (x->first == NULL)
 		return (NULL);
@@ -157,10 +161,10 @@ s_element	*last_stack_elem(s_stack *x)
 	return (temp);
 }
 
-void put_index(s_stack *x)
+void	put_index(s_stack *x)
 {
-	s_element *temp;
-	s_element *temp2;
+	s_element	*temp;
+	s_element	*temp2;
 
 	temp = x->first;
 	temp2 = x->first;
@@ -169,15 +173,15 @@ void put_index(s_stack *x)
 		while (temp2->next_one != NULL)
 		{
 			if (temp->number)
-			temp2 = temp->next_one;
+				temp2 = temp->next_one;
 		}
 		temp = temp->next_one;
 	}
 }
 
-void init_values(s_stack *a)
+void	init_values(s_stack *a)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	temp = a->first;
 	while (temp != NULL)
@@ -190,8 +194,8 @@ void init_values(s_stack *a)
 
 long	push_swap_atoi(const char *str, s_control *list)
 {
-	long nb;
-	int sign;
+	long	nb;
+	int		sign;
 
 	nb = 0;
 	sign = 1;
@@ -201,8 +205,8 @@ long	push_swap_atoi(const char *str, s_control *list)
 			sign = -1;
 		str++;
 	}
-	if ((*str < '0' || *str > '9') &&
-	(*str != ' '))
+	if ((*str < '0' || *str > '9')
+		&& (*str != ' '))
 		error(list);
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
@@ -219,21 +223,21 @@ long	push_swap_atoi(const char *str, s_control *list)
 
 s_bool	is_smallest(s_stack *x, int nb)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	temp = x->first;
 	while (temp != NULL)
 	{
 		if (nb > temp->number)
-			return FALSE;
+			return (FALSE);
 		temp = temp->next_one;
 	}
-	return TRUE;
+	return (TRUE);
 }
 
-int 	find_smallest_nb(s_stack *x, int *pos)
+int		find_smallest_nb(s_stack *x, int *pos)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	if (x->first == NULL)
 		return (FAILURE);
@@ -248,10 +252,10 @@ int 	find_smallest_nb(s_stack *x, int *pos)
 	return (FAILURE);
 }
 
-s_element *find_min_elem(s_stack *x)
+s_element	*find_min_elem(s_stack *x)
 {
-	s_element *temp;
-	s_element *min;
+	s_element	*temp;
+	s_element	*min;
 
 	if (x->first == NULL)
 		return (NULL);
@@ -268,10 +272,10 @@ s_element *find_min_elem(s_stack *x)
 	return (min);
 }
 
-s_element *find_max_elem(s_stack *x)
+s_element	*find_max_elem(s_stack *x)
 {
-	s_element *temp;
-	s_element *max;
+	s_element	*temp;
+	s_element	*max;
 
 	if (x->first == NULL)
 		return (NULL);
@@ -288,9 +292,9 @@ s_element *find_max_elem(s_stack *x)
 	return (max);
 }
 
-s_element *find_elem_of_index(s_stack *x, int index)
+s_element	*find_elem_of_index(s_stack *x, int index)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	if (x->first == NULL)
 		return (NULL);
@@ -304,10 +308,10 @@ s_element *find_elem_of_index(s_stack *x, int index)
 	return (NULL);
 }
 
-s_element *find_just_after(s_stack *x, s_element *elem)
+s_element	*find_just_after(s_stack *x, s_element *elem)
 {
-	s_element *temp;
-	int idx;
+	s_element	*temp;
+	int			idx;
 
 	idx = 99999;
 	temp = x->first;

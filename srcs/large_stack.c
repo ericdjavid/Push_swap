@@ -12,9 +12,9 @@
 
 #include "../inc/push_swap.h"
 
-void copy_stack(s_control *list)
+void	copy_stack(s_control *list)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	temp = list->a->first;
 	while (temp != NULL)
@@ -24,11 +24,11 @@ void copy_stack(s_control *list)
 	}
 }
 
-void sort_insertion(s_stack *a_cpy)
+void	sort_insertion(s_stack *a_cpy)
 {
-	s_element *temp;
-	s_element *temp2;
-	int tempo;
+	s_element	*temp;
+	s_element	*temp2;
+	int			tempo;
 
 	temp = a_cpy->first;
 	temp2 = a_cpy->first;
@@ -36,7 +36,8 @@ void sort_insertion(s_stack *a_cpy)
 	{
 		while (temp != NULL)
 		{
-			while (temp2->next_one != NULL && temp2->next_one->number <= temp->number)
+			while (temp2->next_one != NULL
+				&& temp2->next_one->number <= temp->number)
 				temp2 = temp2->next_one;
 			tempo = temp2->number;
 			temp2->number = temp->number;
@@ -48,10 +49,10 @@ void sort_insertion(s_stack *a_cpy)
 	}
 }
 
-void affect_copy_index(s_stack *cpy_a)
+void	affect_copy_index(s_stack *cpy_a)
 {
-	s_element *temp;
-	int index;
+	s_element	*temp;
+	int			index;
 
 	index = 0;
 	temp = cpy_a->first;
@@ -63,10 +64,10 @@ void affect_copy_index(s_stack *cpy_a)
 	}
 }
 
-void affect_target_index(s_control *list)
+void	affect_target_index(s_control *list)
 {
-	s_element *temp;
-	s_element *temp2;
+	s_element	*temp;
+	s_element	*temp2;
 
 	temp = list->a->first;
 	temp2 = list->a_cpy->first;
@@ -77,7 +78,7 @@ void affect_target_index(s_control *list)
 			if (temp2->number == temp->number)
 			{
 				temp->index = temp2->index;
-				break;
+				break ;
 			}
 			temp2 = temp2->next_one;
 		}
@@ -86,10 +87,10 @@ void affect_target_index(s_control *list)
 	}
 }
 
-int find_index(s_stack *x, int index)
+int	find_index(s_stack *x, int index)
 {
-	s_element *temp;
-	int pos;
+	s_element	*temp;
+	int			pos;
 
 	pos = 0;
 	temp = x->first;
@@ -103,10 +104,10 @@ int find_index(s_stack *x, int index)
 	return (-1);
 }
 
-int count_to_top(s_stack *x, s_element *elem)
+int	count_to_top(s_stack *x, s_element *elem)
 {
-	int pos;
-	int pos2;
+	int	pos;
+	int	pos2;
 
 	pos = find_index(x, elem->index);
 	if (pos == 2)
@@ -118,21 +119,21 @@ int count_to_top(s_stack *x, s_element *elem)
 	if (((float)pos / (float)compute_stack_size(x)) <= 0.5)
 	{
 		if (x->type == 0)
-			return(pos - 1);
+			return (pos - 1);
 		return (pos);
 	}
 	else
 	{
 		pos2 = compute_stack_size(x) - pos + 2;
 		if (x->type == 0)
-			return(pos2 - 1);
+			return (pos2 - 1);
 		return (pos2);
 	}
 }
 
-void put_action_count(s_stack *x)
+void	put_action_count(s_stack *x)
 {
-	s_element *temp;
+	s_element	*temp;
 
 	temp = x->first;
 	while (temp != NULL)
@@ -142,7 +143,7 @@ void put_action_count(s_stack *x)
 	}
 }
 
-int find_action_index(s_stack *x, int index)
+int	find_action_index(s_stack *x, int index)
 {
 	s_element *temp;
 
@@ -156,10 +157,10 @@ int find_action_index(s_stack *x, int index)
 	return (0);
 }
 
-int push_to_top(s_stack *x, s_element *elem)
+int	push_to_top(s_stack *x, s_element *elem)
 {
-	int pos;
-	int pos2;
+	int	pos;
+	int	pos2;
 	int	i;
 
 	i = 0;
@@ -186,10 +187,10 @@ int push_to_top(s_stack *x, s_element *elem)
 	}
 }
 
-s_element *find_lower_action(s_stack *x)
+s_element	*find_lower_action(s_stack *x)
 {
-	s_element *temp;
-	s_element *minimal;
+	s_element	*temp;
+	s_element	*minimal;
 
 	temp = x->first;
 	minimal = temp;
@@ -203,29 +204,29 @@ s_element *find_lower_action(s_stack *x)
 	return (minimal);
 }
 
-void consolid_action_count(s_control *list)
+void	consolid_action_count(s_control *list)
 {
-	s_element  *temp;
-	s_element *min;
-	s_element *max;
+	s_element	*temp;
+	s_element	*min;
+	s_element	*max;
 
 	put_action_count(list->a);
 	put_action_count(list->b);
 	min = find_min_elem(list->a);
 	max = find_max_elem(list->a);
 	temp = list->b->first;
-
 	while (temp != NULL)
 	{
-		if(temp->index < min->index)
+		if (temp->index < min->index)
 			temp->count_for_sort += min->count_for_sort;
-		else if(temp->index > max->index)
+		else if (temp->index > max->index)
 			temp->count_for_sort += max->count_for_sort;
 		else if (find_index(list->a, (temp->index + 1)) != -1)
 			temp->count_for_sort += find_action_index(list->a, temp->index + 1);
-		else if (temp->index > min->index && temp->index < max->index && temp->index > last_stack_elem(list->a)->index
+		else if (temp->index > min->index && temp->index < max->index
+			&& temp->index > last_stack_elem(list->a)->index
 			&& temp->index < list->a->first->index)
-			return;
+			return ;
 		else if (temp->index > min->index && temp->index < max->index)
 			temp->count_for_sort += find_just_after(list->a, temp)->count_for_sort;
 		else
@@ -234,11 +235,11 @@ void consolid_action_count(s_control *list)
 	}
 }
 
-void make_moves(s_control *list)
+void	make_moves(s_control *list)
 {
-	s_element *min;
-	s_element *max;
-	s_element *temp;
+	s_element	*min;
+	s_element	*max;
+	s_element	*temp;
 
 	while (compute_stack_size(list->b))
 	{
@@ -246,49 +247,49 @@ void make_moves(s_control *list)
 		max = find_max_elem(list->a);
 		consolid_action_count(list);
 		temp = find_lower_action(list->b);
-		if (temp->index < min->index || temp->index > max->index )
+		if ((temp->index < min->index) || (temp->index > max->index))
 		{
 			list->action_nb += push_to_top(list->a, min);
 			list->action_nb += push_to_top(list->b, temp);
 			push_a(list);
-			continue;
+			continue ;
 		}
 		if (find_index(list->a, (temp->index + 1)) != -1)
 		{
 			list->action_nb += push_to_top(list->a, find_elem_of_index(list->a, (temp->index + 1)));
 			list->action_nb += push_to_top(list->b, temp);
 			push_a(list);
-			continue;
+			continue ;
 		}
 		if (temp->index < max->index && temp->index > min->index && temp->index > last_stack_elem(list->a)->index
 			&& temp->index < list->a->first->index)
 		{
 			push_to_top(list->b, temp);
 			push_a(list);
-			continue;
+			continue ;
 		}
 		if (temp->index < max->index && temp->index > min->index)
 		{
 			push_to_top(list->a, find_just_after(list->a, temp));
 			push_to_top(list->b, temp);
 			push_a(list);
-			continue;
+			continue ;
 		}
 	}
 }
 
-void large_stack_strat(s_control *list)
+void	large_stack_strat(s_control *list)
 {
-	int s1;
-	int s2;
+	int	s1;
+	int	s2;
+	int	index_count;
+
 	copy_stack(list);
 	sort_insertion(list->a_cpy);
 	affect_copy_index(list->a_cpy);
 	affect_target_index(list);
-
 	s1 = strat1(list);
 	s2 = strat2(list);
-	int index_count;
 	if (s1 > s2)
 	{
 		find_keep_nb(list->s2_markup_head, list->a, TRUE);
@@ -304,5 +305,5 @@ void large_stack_strat(s_control *list)
 	push_to_b_groups(list, index_count);
 	make_moves(list);
 	if (!is_sorted(list->a))
-		push_to_top(list->a, find_elem_of_index(list->a,0));
+		push_to_top(list->a, find_elem_of_index(list->a, 0));
 }

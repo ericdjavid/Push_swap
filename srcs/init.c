@@ -12,12 +12,12 @@
 
 #include "../inc/push_swap.h"
 
-s_control	*init()
+s_control	*init(void)
 {
 	s_control	*list;
-	s_stack	*a;
-	s_stack	*b;
-	s_stack *a_cpy;
+	s_stack		*a;
+	s_stack		*b;
+	s_stack		*a_cpy;
 
 	list = malloc(sizeof(*list));
 	a = malloc(sizeof(*a));
@@ -39,5 +39,6 @@ s_control	*init()
 	list->b->type = 1;
 	list->index_nb = 0;
 	list->index_push = 0;
-	return(list);
+	return (list);
 }
+
