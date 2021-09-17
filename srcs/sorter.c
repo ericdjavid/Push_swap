@@ -68,7 +68,7 @@ void	five_elems(t_control *list)
 		push_b(list);
 	}
 	three_elems(list, list->a->first->number, list->a->first->next_one->number,
-			 list->a->first->next_one->next_one->number);
+		list->a->first->next_one->next_one->number);
 	while (compute_stack_size(list->b))
 		push_a(list);
 }

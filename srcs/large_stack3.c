@@ -20,11 +20,16 @@ void	move_2(t_element *temp, t_control *list)
 	push_a(list);
 }
 
-void 	move_4(t_element *temp, t_control *list)
+int	move_4(t_element *temp, t_control *list, t_element *min, t_element *max)
 {
-	push_to_top(list->a, find_just_after(list->a, temp));
-	push_to_top(list->b, temp);
-	push_a(list);
+	if (temp->index < max->index && temp->index > min->index)
+	{
+		push_to_top(list->a, find_just_after(list->a, temp));
+		push_to_top(list->b, temp);
+		push_a(list);
+		return (SUCCESS);
+	}
+	return (FAILURE);
 }
 
 void	make_moves(t_control *list, t_element *min, t_element *max,
@@ -36,30 +41,27 @@ void	make_moves(t_control *list, t_element *min, t_element *max,
 		max = find_max_elem(list->a);
 		consolid_action_count(list);
 		temp = find_lower_action(list->b);
-		if(move_1(min, max, temp, list))
+		if (move_1(min, max, temp, list))
 			continue ;
 		if (find_index(list->a, (temp->index + 1)) != -1)
 		{
 			move_2(temp, list);
 			continue ;
 		}
-		if (temp->index < max->index && temp->index > min->index
-			&& temp->index > last_stack_elem(list->a)->index
+		if (temp->index < max->index && temp->index > min->index && temp->index
+			> last_stack_elem(list->a)->index
 			&& temp->index < list->a->first->index)
 		{
 			push_to_top(list->b, temp);
 			push_a(list);
 			continue ;
 		}
-		if (temp->index < max->index && temp->index > min->index)
-		{
-			move_4(temp, list);
+		if (move_4(temp, list, min, max))
 			continue ;
-		}
 	}
 }
 
-void 	large_strack_strat2(t_control *list, int s1, int s2, int index_count)
+void	large_strack_strat2(t_control *list, int s1, int s2, int index_count)
 {
 	t_element	*min;
 	t_element	*max;

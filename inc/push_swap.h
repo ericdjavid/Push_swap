@@ -22,43 +22,43 @@
 typedef enum s_status {
 	FAILURE,
 	SUCCESS
-} t_status;
+}	t_status;
 
 typedef enum s_bool {
 	FALSE,
 	TRUE
-} t_bool;
+}	t_bool;
 
 typedef struct s_element {
-	int	number;
-	int index;
-	int count_for_sort;
-	struct s_element *next_one;
-	t_bool keep;
+	int					number;
+	int					index;
+	int					count_for_sort;
+	struct s_element	*next_one;
+	t_bool				keep;
 }	t_element;
 
 typedef struct s_stack {
-	t_element *first;
-	int type;
-} t_stack;
+	t_element	*first;
+	int			type;
+}	t_stack;
 
 typedef struct s_control {
-	t_stack	*a;
-	t_stack *b;
-	t_stack	*a_cpy;
-	t_element *temp;
-	int	count;
-	int	action_nb;
-	int index_push;
-	int index_nb;
-	int	s2_markup_head;
-	int group_count;
-	int group_size;
-} t_control;
+	t_stack		*a;
+	t_stack		*b;
+	t_stack		*a_cpy;
+	t_element	*temp;
+	int			count;
+	int			action_nb;
+	int			index_push;
+	int			index_nb;
+	int			s2_markup_head;
+	int			group_count;
+	int			group_size;
+}	t_control;
 
 /* prototypes */
 void		error(t_control *list);
-void 		check_arg_errors(char *arg);
+void		check_arg_errors(char *arg);
 void		add_beg_list(t_stack *x, int numb);
 void		add_end_list(t_stack *x, int numb);
 void		push_b(t_control *list);
@@ -75,7 +75,7 @@ void		display_list(t_stack *x, char z);
 void		push_a(t_control *list);
 void		displayer(t_control *list);
 t_bool		is_biggest(t_stack *x, int nb);
-int 		compute_stack_size(t_stack *x);
+int			compute_stack_size(t_stack *x);
 t_element	*last_stack_elem(t_stack *x);
 void		put_index(t_stack *x);
 t_bool		is_smallest(t_stack *x, int nb);
@@ -91,11 +91,11 @@ int			strat2(t_control *list);
 void		free_stack(t_stack *x);
 int			find_index(t_stack *x, int index);
 t_control	*init(t_stack *a, t_stack *b, t_stack *a_cpy);
-void 		free_all(t_control *list);
-t_element 	*find_min_elem(t_stack *x);
-t_element 	*find_max_elem(t_stack *x);
-t_element 	*find_elem_of_index(t_stack *x, int index);
-int 		find_keep_nb_str2(int index, t_stack *a, t_bool affect, int i);
+void		free_all(t_control *list);
+t_element	*find_min_elem(t_stack *x);
+t_element	*find_max_elem(t_stack *x);
+t_element	*find_elem_of_index(t_stack *x, int index);
+int			find_keep_nb_str2(int index, t_stack *a, t_bool affect, int i);
 int			strat1(t_control *list);
 int			find_keep_nb(int index, t_stack *a, t_bool affect);
 int			ft_max(int a, int b);
@@ -107,6 +107,7 @@ int			find_action_index(t_stack *x, int index);
 void		sort_insertion(t_stack *a_cpy);
 void		consolid_action_count(t_control *list);
 t_element	*find_lower_action(t_stack *x);
-int			move_1(t_element *min, t_element *max, t_element *temp, t_control *list);
+int			move_1(t_element *min, t_element *max,
+				t_element *temp, t_control *list);
 
 #endif

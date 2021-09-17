@@ -56,7 +56,8 @@ t_element	*find_lower_action(t_stack *x)
 	return (minimal);
 }
 
-void 	consolid_action2(t_element *temp, t_element *min, t_element *max, t_control *list)
+void	consolid_action2(t_element *temp, t_element *min,
+	t_element *max, t_control *list)
 {
 	while (temp != NULL)
 	{
@@ -67,11 +68,12 @@ void 	consolid_action2(t_element *temp, t_element *min, t_element *max, t_contro
 		else if (find_index(list->a, (temp->index + 1)) != -1)
 			temp->count_for_sort += find_action_index(list->a, temp->index + 1);
 		else if (temp->index > min->index && temp->index < max->index
-				 && temp->index > last_stack_elem(list->a)->index
-				 && temp->index < list->a->first->index)
+			&& temp->index > last_stack_elem(list->a)->index
+			&& temp->index < list->a->first->index)
 			return ;
 		else if (temp->index > min->index && temp->index < max->index)
-			temp->count_for_sort += find_just_after(list->a, temp)->count_for_sort;
+			temp->count_for_sort += find_just_after(list->a,
+					temp)->count_for_sort;
 		else
 			temp->count_for_sort = 666666;
 		temp = temp->next_one;
