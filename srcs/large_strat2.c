@@ -6,7 +6,7 @@
 /*   By: edjavid <e.djavid@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 23:43:33 by edjavid           #+#    #+#             */
-/*   Updated: 2021/09/07 23:43:33 by edjavid          ###   ########.fr       */
+/*   Updated: 2021/09/17 17:02:21 by edjavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ int	strat2(t_control *list)
 {
 	int			nb_keep;
 	t_element	*temp;
-	int 		i;
-
+	int			i;
 
 	i = compute_stack_size(list->a) + 1;
 	temp = list->a->first;

@@ -11,12 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ef197b9e-2839-4692-b11e-a6655e76b107" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inc/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/push_swap.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/push_swap" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/push_swap" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/init.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/large_stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/large_stack.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/large_strat2.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/large_strat2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/push_swap.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/push_swap.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +77,7 @@
       <workItem from="1631690252279" duration="22815000" />
       <workItem from="1631779400489" duration="9321000" />
       <workItem from="1631878989401" duration="3806000" />
-      <workItem from="1631886515681" duration="2829000" />
+      <workItem from="1631886515681" duration="3758000" />
     </task>
     <servers />
   </component>

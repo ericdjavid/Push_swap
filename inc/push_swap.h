@@ -90,7 +90,7 @@ int			find_smallest_nb(t_stack *x, int *pos);
 int			strat2(t_control *list);
 void		free_stack(t_stack *x);
 int			find_index(t_stack *x, int index);
-t_control	*init(void);
+t_control	*init(t_stack *a, t_stack *b, t_stack *a_cpy);
 void 		free_all(t_control *list);
 t_element 	*find_min_elem(t_stack *x);
 t_element 	*find_max_elem(t_stack *x);

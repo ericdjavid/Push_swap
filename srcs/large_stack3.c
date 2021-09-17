@@ -6,15 +6,16 @@
 /*   By: edjavid <e.djavid@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:15:49 by edjavid           #+#    #+#             */
-/*   Updated: 2021/09/17 16:15:50 by edjavid          ###   ########.fr       */
+/*   Updated: 2021/09/17 17:01:40 by edjavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void 	move_2(t_element *temp, t_control *list)
+void	move_2(t_element *temp, t_control *list)
 {
-	list->action_nb += push_to_top(list->a, find_elem_of_index(list->a, (temp->index + 1)));
+	list->action_nb += push_to_top(list->a,
+			find_elem_of_index(list->a, (temp->index + 1)));
 	list->action_nb += push_to_top(list->b, temp);
 	push_a(list);
 }
@@ -26,8 +27,8 @@ void 	move_4(t_element *temp, t_control *list)
 	push_a(list);
 }
 
-
-void	make_moves(t_control *list, t_element *min, t_element *max, t_element *temp)
+void	make_moves(t_control *list, t_element *min, t_element *max,
+				t_element *temp)
 {
 	while (compute_stack_size(list->b))
 	{
@@ -42,7 +43,8 @@ void	make_moves(t_control *list, t_element *min, t_element *max, t_element *temp
 			move_2(temp, list);
 			continue ;
 		}
-		if (temp->index < max->index && temp->index > min->index && temp->index > last_stack_elem(list->a)->index
+		if (temp->index < max->index && temp->index > min->index
+			&& temp->index > last_stack_elem(list->a)->index
 			&& temp->index < list->a->first->index)
 		{
 			push_to_top(list->b, temp);
@@ -100,5 +102,4 @@ void	large_stack_strat(t_control *list)
 	s1 = strat1(list);
 	s2 = strat2(list);
 	large_strack_strat2(list, s1, s2, index_count);
-
 }

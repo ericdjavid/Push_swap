@@ -51,10 +51,16 @@ void	convert_arg(char **argv, t_control *list)
 int	main(int argc, char **argv)
 {
 	t_control	*list;
+	t_stack		*a;
+	t_stack		*b;
+	t_stack		*a_cpy;
 
+	a = NULL;
+	b = NULL;
+	a_cpy = NULL;
 	if (argc == 1)
 		exit(FAILURE);
-	list = init();
+	list = init(a, b, a_cpy);
 	convert_arg(argv, list);
 	init_values(list->a);
 	if (is_sorted(list->a))

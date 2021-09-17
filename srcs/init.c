@@ -12,17 +12,15 @@
 
 #include "../inc/push_swap.h"
 
-t_control	*init(void)
+t_control	*init(t_stack *a, t_stack *b, t_stack *a_cpy)
 {
 	t_control	*list;
-	t_stack		*a;
-	t_stack		*b;
-	t_stack		*a_cpy;
 
 	list = malloc(sizeof(*list));
-	if ((!(a = malloc(sizeof(*a))))
-		|| (!(b = malloc(sizeof(*b))))
-		|| (!(a_cpy = malloc(sizeof(*a_cpy)))))
+	a = malloc(sizeof(*a));
+	b = malloc(sizeof(*b));
+	a_cpy = malloc(sizeof(*a_cpy));
+	if ((!(list)) || (!(a)) || (!(b)) || (!(a_cpy)))
 		exit(EXIT_FAILURE);
 	a->first = NULL;
 	b->first = NULL;
