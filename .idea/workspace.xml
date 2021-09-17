@@ -11,18 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ef197b9e-2839-4692-b11e-a6655e76b107" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/push_swap.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/push_swap" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/init.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/large_stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/large_stack.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/large_stack2.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/large_stack2.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/large_strat2.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/large_strat2.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/push_to_b_groups.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/push_to_b_groups.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/sorter.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/sorter.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/stack_moves.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/stack_moves.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/utils2.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/utils2.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/utils3.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/utils3.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/utils4.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/utils4.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +53,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -83,7 +77,9 @@
       <workItem from="1631520608383" duration="15042000" />
       <workItem from="1631607050733" duration="12852000" />
       <workItem from="1631690252279" duration="22815000" />
-      <workItem from="1631779400489" duration="8698000" />
+      <workItem from="1631779400489" duration="9321000" />
+      <workItem from="1631878989401" duration="3806000" />
+      <workItem from="1631886515681" duration="2829000" />
     </task>
     <servers />
   </component>

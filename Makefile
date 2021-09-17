@@ -11,6 +11,7 @@ SRC =   srcs/push_swap.c          \
         srcs/sorter.c             \
         srcs/large_stack.c         \
         srcs/large_stack2.c         \
+        srcs/large_stack3.c         \
         srcs/large_strat1.c         \
         srcs/large_strat2.c         \
         srcs/free.c                 \

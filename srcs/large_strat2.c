@@ -12,14 +12,12 @@
 
 #include "../inc/push_swap.h"
 
-int	find_keep_nb_str2(int index, t_stack *a, t_bool affect)
+int	find_keep_nb_str2(int index, t_stack *a, t_bool affect, int i)
 {
 	t_element	*temp;
-	int			i;
 	int			count;
 	int			comp;
 
-	i = compute_stack_size(a) + 1;
 	count = 0;
 	temp = find_elem_of_index(a, index);
 	if (affect == TRUE)
@@ -46,7 +44,10 @@ int	strat2(t_control *list)
 {
 	int			nb_keep;
 	t_element	*temp;
+	int 		i;
 
+
+	i = compute_stack_size(list->a) + 1;
 	temp = list->a->first;
 	nb_keep = 0;
 	while (temp != NULL)
@@ -56,9 +57,9 @@ int	strat2(t_control *list)
 			swap_x(list->a);
 			temp = list->a->first;
 		}
-		if (find_keep_nb_str2(temp->index, list->a, FALSE) > nb_keep)
+		if (find_keep_nb_str2(temp->index, list->a, FALSE, i) > nb_keep)
 		{
-			nb_keep = find_keep_nb_str2(temp->index, list->a, FALSE);
+			nb_keep = find_keep_nb_str2(temp->index, list->a, FALSE, i);
 			list->s2_markup_head = temp->index;
 		}
 		temp = temp->next_one;

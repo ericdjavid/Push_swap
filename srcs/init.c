@@ -19,10 +19,11 @@ t_control	*init(void)
 	t_stack		*b;
 	t_stack		*a_cpy;
 
-	if ((!(list = malloc(sizeof(*list)))) || (!(a = malloc(sizeof(*a))))
+	list = malloc(sizeof(*list));
+	if ((!(a = malloc(sizeof(*a))))
 		|| (!(b = malloc(sizeof(*b))))
 		|| (!(a_cpy = malloc(sizeof(*a_cpy)))))
-					exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	a->first = NULL;
 	b->first = NULL;
 	list->temp = NULL;

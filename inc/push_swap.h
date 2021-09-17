@@ -95,7 +95,7 @@ void 		free_all(t_control *list);
 t_element 	*find_min_elem(t_stack *x);
 t_element 	*find_max_elem(t_stack *x);
 t_element 	*find_elem_of_index(t_stack *x, int index);
-int 		find_keep_nb_str2(int index, t_stack *a, t_bool affect);
+int 		find_keep_nb_str2(int index, t_stack *a, t_bool affect, int i);
 int			strat1(t_control *list);
 int			find_keep_nb(int index, t_stack *a, t_bool affect);
 int			ft_max(int a, int b);
@@ -105,5 +105,8 @@ t_element	*find_just_after(t_stack *x, t_element *elem);
 void		put_action_count(t_stack *x);
 int			find_action_index(t_stack *x, int index);
 void		sort_insertion(t_stack *a_cpy);
+void		consolid_action_count(t_control *list);
+t_element	*find_lower_action(t_stack *x);
+int			move_1(t_element *min, t_element *max, t_element *temp, t_control *list);
 
 #endif
